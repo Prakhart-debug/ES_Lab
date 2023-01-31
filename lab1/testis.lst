@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000100        DCD              0x10000100
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 4806            LDR              R0, =SRC
+   12 00000002 4907            LDR              R1, =DST
+   13 00000004 6802            LDR              R2, [R0]
+   14 00000006 600A            STR              R2, [R1]
+   15 00000008 E7FE    STOP    B                STOP
+   16 0000000A 00 00 12345678 
+              00ABCD12 
+              00000056 
+              00000078 SRC     DCD              0x12345678, 0xABCD12, 0X56, 0x7
+8
+   17 0000001C 00000000 
+              00000000         AREA             Mydata, DATA, READWRITE
+   18 00000000 00000000 
+              00000000 
+              00000000 DST     DCD              0, 0, 0
+   19 0000000C                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=testis.d
+ -otestis.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=testis.lst testis.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file testis.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file testis.s
+   Uses
+      At line 2 in file testis.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file testis.s
+   Uses
+      At line 5 in file testis.s
+      At line 9 in file testis.s
+
+SRC 0000000C
+
+Symbol: SRC
+   Definitions
+      At line 16 in file testis.s
+   Uses
+      At line 11 in file testis.s
+Comment: SRC used once
+STOP 00000008
+
+Symbol: STOP
+   Definitions
+      At line 15 in file testis.s
+   Uses
+      At line 15 in file testis.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file testis.s
+   Uses
+      None
+Comment: mycode unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 18 in file testis.s
+   Uses
+      At line 12 in file testis.s
+Comment: DST used once
+Mydata 00000000
+
+Symbol: Mydata
+   Definitions
+      At line 17 in file testis.s
+   Uses
+      None
+Comment: Mydata unused
+2 symbols
+341 symbols in table

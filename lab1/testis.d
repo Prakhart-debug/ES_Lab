@@ -1,0 +1,1 @@
+testis.o: testis.s
