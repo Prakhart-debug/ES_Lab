@@ -1,0 +1,84 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA , READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000100        DCD              0x10000100
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode , CODE , READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 F04F 000A       MOV              R0, #10
+   12 00000004 F04F 0110       MOV              R1, #0x10
+   13 00000008 F240 12D5       LDR              R2, =2_0111010101
+   14 0000000C F06F 0304       MOV              R3, #-5
+   15 00000010 F24F 3478       LDR              R4, =0xF378
+   16 00000014 4D00            LDR              R5, =0x12345678
+   17 00000016 E7FE    STOP    B                STOP
+   18 00000018                 END
+              12345678 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=p1.d -op
+1.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LP
+C17xx --predefine="__EVAL SETA 1" --list=p1.lst p1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file p1.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file p1.s
+   Uses
+      At line 2 in file p1.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file p1.s
+   Uses
+      At line 5 in file p1.s
+      At line 9 in file p1.s
+
+STOP 00000016
+
+Symbol: STOP
+   Definitions
+      At line 17 in file p1.s
+   Uses
+      At line 17 in file p1.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file p1.s
+   Uses
+      None
+Comment: mycode unused
+3 symbols
+338 symbols in table
