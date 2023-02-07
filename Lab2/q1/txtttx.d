@@ -1,0 +1,1 @@
+txtttx.o: txtttx.s
